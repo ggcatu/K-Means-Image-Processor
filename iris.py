@@ -9,7 +9,7 @@ import pandas
     y: segundo vector
 '''
 def distance(x,y):
-    print("Distancia entre {} - {}".format(str(x),str(y)))
+##    print("Distancia entre {} - {}".format(str(x),str(y)))
     a = np.array(x)
     b = np.array(y)
     dist = np.linalg.norm(a-b)
@@ -28,8 +28,8 @@ def k_mean(n_array, centroid):
                 if g < maxi:
                     maxi = g
                     indice = ix
-            print("Ganador {} con distancia {}".format(j,g))
-            summes[indice]+= j
+##            print("Ganador {} con distancia {}".format(j,g))
+            summes[indice]+= n_array[indice]
             cantidades[indice] += 1
     print("{} con sumas {}".format(str(summes),str(cantidades)))
     cantidades = list(map(float,cantidades))
@@ -53,7 +53,7 @@ initial = centros.iloc[:, :4].as_matrix()
 print("Centros iniciales")
 print(initial)
 print()
-for x in range(4):
+for x in range(40):
     print("Starting iteration")
     initial = k_mean(data.iloc[:, :4].as_matrix(),initial)
     print("Done iteration {}".format(x))
